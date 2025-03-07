@@ -2,6 +2,7 @@ import React from "react";
 import {BrowserRouter as Router, Route, Routes} from "react-router-dom";
 import 'materialize-css/dist/css/materialize.min.css'; //importing Materialize CSS
 import 'materialize-css/dist/js/materialize.min.js'; //importing Materialize's JS components
+import Landing from "./pages/landing";
 
 
 const App = () => {
@@ -10,7 +11,8 @@ const App = () => {
     <div>
       <Router>
         <Routes>
-          {/* Insert paths and their respective elements here */}
+          {/* Routes go here */}
+          <Route path="/" element={<Landing/>}/>
         </Routes>
       </Router>
     </div>
