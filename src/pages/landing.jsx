@@ -24,7 +24,7 @@ const Landing = () => {
                 </div>
                 <div className="row">
                     <div className="col s12">
-                        <button className="waves-effect waves-light btn-large redirectButtons">Log In</button>
+                        <button className="waves-effect waves-light btn-large redirectButtons" onClick={() => {navigate("/login")}}>Log In</button>
                     </div>
                 </div>
             </div>

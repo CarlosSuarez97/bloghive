@@ -14,6 +14,11 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
+.redirectButtons {
+  background-color: #2a63d5;
+  width: 50%;
+}
+
 .formCard {
   background-color: #2a63d5;
 }

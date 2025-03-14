@@ -7,13 +7,6 @@ import SignUpForm from "../components/SignUpForm";
 const SignUp = () => {
     return(
         <div>
-            <div className="container">
-                <div className="row">
-                    <div className="col s12">
-                        <h2 className="rubik-semibold">Sign up for an account</h2>
-                    </div>
-                </div>
-            </div>
             <SignUpForm/>
             <Footer/>
         </div>
