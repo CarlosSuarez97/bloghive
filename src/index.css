@@ -5,7 +5,7 @@
 
   color-scheme: light dark;
   color: rgba(255, 255, 255, 0.87);
-  background-color: #d59c2a;
+  background-color: #000000;
   background-image: url("https://www.transparenttextures.com/patterns/hexellence.png");
 
   font-synthesis: none;
@@ -14,13 +14,21 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
-.redirectButtons {
-  background-color: #2a63d5;
-  width: 50%;
+#logo {
+  max-width: 75%;
+  height: auto;
 }
 
-.formCard {
-  background-color: #2a63d5;
+.customButtons {
+  width: 50%;
+  background-color: #d59c2a;
+  color: #000000;
+}
+
+.customButtons2 {
+   width: 50%;
+   background-color: #fed600;
+   color: #000000;
 }
 
 .rubik-medium {

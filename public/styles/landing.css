@@ -1,12 +1,4 @@
-:root {
-    text-align: center;
-}
-
-#bloghive {
-    width: 50%;
+#logo {
+    max-width: 75%;
     height: auto;
-}
-.redirectButtons {
-    background-color: #2a63d5;
-    width: 50%;
 }
