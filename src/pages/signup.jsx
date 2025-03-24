@@ -5,9 +5,12 @@ import Footer from "../components/footer";
 import SignUpForm from "../components/signUpForm.jsx";
 import logo from "../assets/logo.png";
 import "../../public/styles/signup.css";
+import Header from "../components/header.jsx";
 
 const SignUp = () => {
     return(
+        <>
+        <Header/>
         <div className="container">
             <div className="row">
                 <div className="col s12">
@@ -24,6 +27,7 @@ const SignUp = () => {
                 <Footer/>
             </div>
         </div>
+        </>
     )
 }
 

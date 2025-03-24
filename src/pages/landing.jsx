@@ -5,10 +5,13 @@ import '../../public/styles/landing.css'; //importing this page's custom styling
 import Footer from "../components/footer";
 import { useNavigate } from "react-router-dom";
 import logo from "../assets/logo.png"; //importing application's brand's logo
+import Header from "../components/header";
 
 const Landing = () => {
     const navigate = useNavigate();
     return(
+        <>
+        <Header/>
         <div className="container">
             <div className="row">
                 <div className="col s12 m4 l6">
@@ -38,6 +41,7 @@ const Landing = () => {
             </div>
             <Footer/>
         </div>
+        </>
     )
 }
 
