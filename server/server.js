@@ -25,10 +25,8 @@ app.use(bodyParser.urlencoded({extended: true})); // parse url-encoded data
 app.use(bodyParser.json()); // parse JSON request bodies
 app.use(cors()); // allow frontend requests
 
-app.get("/", (req, res) => {
-    res.send("Server running");
-});
+
 
 app.listen(port, () => {
     console.log(`Server running on port ${port}`);
-});
+}); // server start
