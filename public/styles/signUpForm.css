@@ -2,14 +2,9 @@
     vertical-align: middle;
 }
 
-.customButtons {
+#signUpBtn {
     width: 50%;
     background-color: #d59c2a;
     color: #000000;
-}
-  
-.customButtons2 {
-     width: 50%;
-     background-color: #fed600;
-     color: #000000;
+    width: 100%;
 }

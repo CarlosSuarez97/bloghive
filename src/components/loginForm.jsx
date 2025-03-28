@@ -29,7 +29,7 @@ const LoginForm = () => {
                 </div>
                 <div className="row">
                     <div className="col s12">
-                        <button type="submit" className="btn-large waves-effect waves-light customButtons">Log In</button>
+                        <button type="submit" className="btn-large waves-effect waves-light customButtons" id="submitButton">Log In</button>
                     </div>
                 </div>
             </form>

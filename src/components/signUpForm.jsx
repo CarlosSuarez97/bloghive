@@ -50,7 +50,7 @@ const SignUpForm = () => {
                 </div>
                 <div className="row">
                     <div className="col s12">
-                        <button type="submit" className="btn-large waves-effect waves-light customButtons">Sign Up</button>
+                        <button type="submit" className="btn-large waves-effect waves-light" id="signUpBtn">Sign Up</button>
                     </div>
                 </div>
             </form>
