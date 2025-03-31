@@ -63,28 +63,28 @@ app.post("/login", async (req, res) => {
         email,
         password
     } = req.body;
+    
     try {
-        const result = await db.query("SELECT * FROM user_info WHERE user_email = $1", [email]);
-        if(result.rows.length > 0) {
-            //Comparing the hashed password stored in the database against what the user's entered
-            const user = result.rows[0];
-            const storedPassword = user.password;
-            bcrypt.compare(password, storedPassword, (err, result) => {
-                if (err) {
-                    console.log("There's been an issue: ", err);
+        const checkForUser = await db.query("SELECT * FROM user_info WHERE user_email = $1", [email]);
+        const hashedPassword = checkForUser.rows[0].user_password;
+
+        if(checkForUser.rows.length > 0) {
+
+            console.log("There's an user using that email address");
+            console.log("We'll try logging you in");
+            bcrypt.compare(password, hashedPassword, (err, result) => {
+                if(err) {
+                    console.log("There's been an error: ", err);
+                } else if (result) {
+                    console.log("You're logged in");
                 } else {
-                    if(result) {
-                        console.log("You've logged in successfully");
-                    } else {
-                        console.log("The information provided doesn't match anything in our records.");
-                    }
+                    console.log("Wrong password, dummy. Try again later.");
                 }
             });
-        } else {
-            console.log("The information provided doesn't match anything in our records.");
         }
-    } catch (err) {
-        console.log("There's been an issue: ", err);
+
+    } catch(error) {
+        console.log("There's been an issue: ", error);
     }
 })
 
