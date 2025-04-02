@@ -13,11 +13,11 @@ dotenv.config(); // loading environment variables
 const app = express();
 const port = process.env.PORT || 3000;
 const db = new pg.Client({
-    database: process.env.DB_NAME,
-    password: process.env.DB_PASSWORD,
-    user: process.env.DB_USER,
-    host: process.env.DB_HOST,
-    port: process.env.DB_PORT
+    database: process.env.DB_NAME, //Database name
+    password: process.env.DB_PASSWORD, //Database password
+    user: process.env.DB_USER, //Database username
+    host: process.env.DB_HOST, //Database host
+    port: process.env.DB_PORT //Database port
 });
 const saltRounds = 10;
 
