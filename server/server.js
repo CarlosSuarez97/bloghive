@@ -2,7 +2,7 @@
 import bodyParser from "body-parser";
 import express from "express";
 import morgan from "morgan";
-import pg from "pg";
+import pg from "pg"; //connection to the database
 import cors from "cors"; // to allow requests from the React frontend
 import dotenv from "dotenv"; // for the database credentials
 import bcrypt from "bcrypt"; //for encrypting and hashing passwords entered by the user on the client side
