@@ -5,6 +5,7 @@ import 'materialize-css/dist/js/materialize.min.js'; //importing Materialize's J
 import Landing from "./pages/landing";
 import SignUp from "./pages/signup";
 import Login from "./pages/login";
+import HomePage from "./pages/home";
 
 
 const App = () => {
@@ -17,6 +18,7 @@ const App = () => {
           <Route path="/" element={<Landing/>}/>
           <Route path="/signup" element={<SignUp/>}/>
           <Route path="/login" element={<Login/>}/>
+          <Route path="/home" element={<HomePage/>}/>
         </Routes>
       </Router>
     </div>

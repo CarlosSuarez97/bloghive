@@ -8,5 +8,12 @@ import Footer from "../components/footer";
 //import for the custom CSS for the page goes here
 
 const HomePage = () => {
-    
+    return(
+        <>
+        <h1>This is the landing page for the usr when they log in</h1>
+        <Footer/>
+        </>
+    )
 }
+
+export default HomePage;

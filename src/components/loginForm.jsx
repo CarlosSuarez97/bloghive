@@ -3,8 +3,10 @@ import axios from "axios";
 import 'materialize-css/dist/css/materialize.min.css'; //importing Materialize CSS
 import 'materialize-css/dist/js/materialize.min.js'; //importing Materialize's JS components
 import "../../public/styles/loginForm.css"; //importing the custom CSS file for this component
+import { useNavigate } from "react-router-dom";
 
 const serverURL = "http://localhost:3000";
+const navigate = useNavigate();
 
 const LoginForm = () => {
 
@@ -22,6 +24,7 @@ const LoginForm = () => {
                 password
             });
             console.log(response.data);
+            navigate('/home');
         } catch (error) {
             console.log("There's been an issue: ", error);
         }

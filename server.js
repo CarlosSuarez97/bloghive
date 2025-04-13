@@ -2,10 +2,12 @@
 import bodyParser from "body-parser";
 import express from "express";
 import morgan from "morgan";
-import pg from "pg";
+import pg from "pg"; //connection to the database
 import cors from "cors"; // to allow requests from the React frontend
 import dotenv from "dotenv"; // for the database credentials
 import bcrypt from "bcrypt"; //for encrypting and hashing passwords entered by the user on the client side
+import path from "path";
+import { fileURLToPath } from "url";
 
 
 dotenv.config(); // loading environment variables
@@ -13,13 +15,16 @@ dotenv.config(); // loading environment variables
 const app = express();
 const port = process.env.PORT || 3000;
 const db = new pg.Client({
-    database: process.env.DB_NAME,
-    password: process.env.DB_PASSWORD,
-    user: process.env.DB_USER,
-    host: process.env.DB_HOST,
-    port: process.env.DB_PORT
+    database: process.env.DB_NAME, //Database name
+    password: process.env.DB_PASSWORD, //Database password
+    user: process.env.DB_USER, //Database username
+    host: process.env.DB_HOST, //Database host
+    port: process.env.DB_PORT //Database port
 });
 const saltRounds = 10;
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
+
 
 db.connect();
 
@@ -27,6 +32,7 @@ app.use(bodyParser.urlencoded({extended: true}));
 app.use(bodyParser.json());
 app.use(cors());
 app.use(express.json());
+app.use(express.static(path.join(__dirname)));
 
 //Creating new users
 app.post("/signup", async (req, res) => {
@@ -86,8 +92,14 @@ app.post("/login", async (req, res) => {
     } catch(error) {
         console.log("There's been an issue: ", error);
     }
+});
+
+app.get("*", (req, res) => {
+    res.sendFile(path.join(__dirname, 'index.html'));
 })
 
 app.listen(port, () => {
     console.log(`Server running on port ${port}`);
 }); // server start
+
+//Management for sessions begin here
