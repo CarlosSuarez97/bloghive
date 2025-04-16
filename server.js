@@ -6,8 +6,6 @@ import pg from "pg"; //connection to the database
 import cors from "cors"; // to allow requests from the React frontend
 import dotenv from "dotenv"; // for the database credentials
 import bcrypt from "bcrypt"; //for encrypting and hashing passwords entered by the user on the client side
-import path from "path";
-import { fileURLToPath } from "url";
 
 
 dotenv.config(); // loading environment variables
@@ -22,8 +20,6 @@ const db = new pg.Client({
     port: process.env.DB_PORT //Database port
 });
 const saltRounds = 10;
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = path.dirname(__filename);
 
 
 db.connect();
@@ -32,7 +28,6 @@ app.use(bodyParser.urlencoded({extended: true}));
 app.use(bodyParser.json());
 app.use(cors());
 app.use(express.json());
-app.use(express.static(path.join(__dirname)));
 
 //Creating new users
 app.post("/signup", async (req, res) => {
@@ -86,9 +81,7 @@ app.post("/login", async (req, res) => {
                         message: "Server error"
                     });
                 } else if (result) {
-                    return res.json({success: true,
-                        message: "Login successful"
-                    }); //Tells the front end code to take the user to the home page if login's successful
+                    return res.json({success: true }); //Tells the front end code to take the user to the home page if login's successful
                 } else {
                     console.log("Wrong password, dummy. Try again later.");
                     return res.status(404).json({
