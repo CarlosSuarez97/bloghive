@@ -80,17 +80,32 @@ app.post("/login", async (req, res) => {
             console.log("We'll try logging you in");
             bcrypt.compare(password, hashedPassword, (err, result) => {
                 if(err) {
-                    console.log("There's been an error: ", err);
+                    console.error("Something's gone wrong: ", err);
+                    return res.status(500).json({
+                        success: false,
+                        message: "Server error"
+                    });
                 } else if (result) {
-                    console.log("You're logged in");
+                    return res.json({success: true,
+                        message: "Login successful"
+                    });
                 } else {
                     console.log("Wrong password, dummy. Try again later.");
+                    return res.status(404).json({
+                        success: false,
+                        message: "Wrong credentials"
+                    });
                 }
             });
+        } else {
+            console.log("Nothing to do here");
         }
 
     } catch(error) {
-        console.log("There's been an issue: ", error);
+        return res.status(500).json({
+            success: false,
+            message: "Server error"
+        });
     }
 });
 

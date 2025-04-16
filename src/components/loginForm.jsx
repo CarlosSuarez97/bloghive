@@ -6,13 +6,14 @@ import "../../public/styles/loginForm.css"; //importing the custom CSS file for 
 import { useNavigate } from "react-router-dom";
 
 const serverURL = "http://localhost:3000";
-const navigate = useNavigate();
 
 const LoginForm = () => {
 
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("")
     const [showPassword, setShowPassword] = useState(false);
+
+    const navigate = useNavigate();
     
     const handleLogin = async (e) => {
 
@@ -23,8 +24,12 @@ const LoginForm = () => {
                 email,
                 password
             });
-            console.log(response.data);
-            navigate('/home');
+            if(response.data.success) {
+                navigate("/home");
+                console.log(response.data.success);
+            } else {
+                console.log("Fail");
+            }
         } catch (error) {
             console.log("There's been an issue: ", error);
         }
