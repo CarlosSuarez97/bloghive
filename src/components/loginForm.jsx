@@ -3,6 +3,7 @@ import axios from "axios";
 import 'materialize-css/dist/css/materialize.min.css'; //importing Materialize CSS
 import 'materialize-css/dist/js/materialize.min.js'; //importing Materialize's JS components
 import "../../public/styles/loginForm.css"; //importing the custom CSS file for this component
+import { useNavigate } from "react-router-dom";
 
 const serverURL = "http://localhost:3000";
 
@@ -11,6 +12,8 @@ const LoginForm = () => {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("")
     const [showPassword, setShowPassword] = useState(false);
+
+    const navigate = useNavigate();
     
     const handleLogin = async (e) => {
 
@@ -21,7 +24,12 @@ const LoginForm = () => {
                 email,
                 password
             });
-            console.log(response.data);
+            if(response.data.success) {
+                navigate("/home");
+                console.log(response.data.success);
+            } else {
+                console.log("Fail");
+            }
         } catch (error) {
             console.log("There's been an issue: ", error);
         }
